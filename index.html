@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulateur de prêt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        nav button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        nav button.active {
+            background-color: #28a745;
+            color: white;
+        }
+        .calculator {
+            display: none;
+            margin: 20px auto;
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .calculator.active {
+            display: block;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+        }
+        button.calculate {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button.calculate:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simulatuer de prêt</h1>
+    <nav>
+        <button onclick="showCalculator('loanCalculator')" class="active">Prêt Immobilier</button>
+        <button onclick="showCalculator('maxLoanCalculator')">Prêt Possible</button>
+    </nav>
+
+    <!-- Calculateur de prêt immobilier -->
+    <div id="loanCalculator" class="calculator active">
+        <h2>Calculer les mensualités</h2>
+        <label for="amount">Montant du prêt (€) :</label>
+        <input type="number" id="amount" placeholder="Ex: 200000">
+
+        <label for="rate">Taux d'intérêt (%) :</label>
+        <input type="number" id="rate" placeholder="Ex: 3">
+
+        <label for="years">Durée (années) :</label>
+        <input type="number" id="years" placeholder="Ex: 20">
+
+        <button class="calculate" onclick="calculateLoan()">Calculer</button>
+        <div id="loanResult" class="result"></div>
+    </div>
+
+    <!-- Calculateur du montant empruntable -->
+    <div id="maxLoanCalculator" class="calculator">
+        <h2>Calculer le montant empruntable</h2>
+        <label for="savings">Épargne mensuelle disponible (€) :</label>
+        <input type="number" id="savings" placeholder="Ex: 800">
+
+        <label for="maxRate">Taux d'intérêt (%) :</label>
+        <input type="number" id="maxRate" placeholder="Ex: 3">
+
+        <label for="maxYears">Durée du prêt (années) :</label>
+        <input type="number" id="maxYears" placeholder="Ex: 20">
+
+        <button class="calculate" onclick="calculateMaxLoan()">Calculer</button>
+        <div id="maxLoanResult" class="result"></div>
+    </div>
+
+    <script>
+        // Fonction pour basculer entre les calculateurs
+        function showCalculator(calculatorId) {
+            // Masquer tous les calculateurs
+            const calculators = document.querySelectorAll('.calculator');
+            calculators.forEach(calculator => calculator.classList.remove('active'));
+
+            // Afficher le calculateur sélectionné
+            document.getElementById(calculatorId).classList.add('active');
+
+            // Mettre à jour l'état actif des boutons
+            const buttons = document.querySelectorAll('nav button');
+            buttons.forEach(button => button.classList.remove('active'));
+            document.querySelector(`nav button[onclick="showCalculator('${calculatorId}')"]`).classList.add('active');
+        }
+
+        // Fonction pour calculer les mensualités du prêt
+        function calculateLoan() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const rate = parseFloat(document.getElementById('rate').value) / 100 / 12;
+            const years = parseInt(document.getElementById('years').value);
+            const n = years * 12;
+
+            if (isNaN(amount) || isNaN(rate) || isNaN(years)) {
+                document.getElementById('loanResult').innerText = "Veuillez entrer des valeurs valides.";
+                return;
+            }
+
+            const monthly = (amount * rate) / (1 - Math.pow(1 + rate, -n));
+            document.getElementById('loanResult').innerText = 
+                "Mensualité : " + monthly.toFixed(2) + " €";
+        }
+
+        // Fonction pour calculer le montant empruntable
+        function calculateMaxLoan() {
+            const savings = parseFloat(document.getElementById('savings').value);
+            const rate = parseFloat(document.getElementById('maxRate').value) / 100 / 12;
+            const years = parseInt(document.getElementById('maxYears').value);
+            const n = years * 12;
+
+            if (isNaN(savings) || isNaN(rate) || isNaN(years)) {
+                document.getElementById('maxLoanResult').innerText = "Veuillez entrer des valeurs valides.";
+                return;
+            }
+
+            const maxLoan = savings * (1 - Math.pow(1 + rate, -n)) / rate;
+            document.getElementById('maxLoanResult').innerText = 
+                "Montant empruntable : " + maxLoan.toFixed(2) + " €";
+        }
+    </script>
+</body>
+</html>
