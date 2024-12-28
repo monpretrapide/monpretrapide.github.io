@@ -4,6 +4,14 @@
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="01383a04-a71d-4711-946a-0e1089182b5e" type="text/javascript" async></script>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta charset="UTF-8">
+    <!-- SEO Basique -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Optimisez vos finances avec MonSimulateur : outils gratuits et conseils pratiques pour mieux gérer votre budget et vos investissements. NEW : Blog astuces!">
+<meta name="keywords" content="simulateur financier, gestion de budget, investissement, épargne, prêt, astuces financières, argent, immobilier, simulateur, calcul, astuces, comment, pret">
+<meta name="author" content="MonPretRapide">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://monpretrapide.github.io/">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulateur Financier Avancé</title>
     <style>
@@ -231,18 +239,21 @@ button.navigate:hover {
 .blog-post button:hover {
     background-color: #0056b3;
 }
-
-
+.about-button {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.about-button:hover {
+    background-color: #ffc107;
+    color: #212529;
+}
     </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7128669870142382"
-     crossorigin="anonymous"></script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-710VHGW07X');
-</script>
     
 </head>
 <body>
@@ -425,54 +436,95 @@ button.navigate:hover {
 <div id="blogSection" class="calculator">
     <h2>Articles Financiers</h2>
     <div class="blog-container">
-        <div class="blog-post" onclick="showArticle('retirement')">
-            <h3>Comment économiser pour votre retraite</h3>
-            <p>Découvrez les meilleures stratégies pour sécuriser votre avenir financier...</p>
+        <div class="blog-post" onclick="showArticle('investingInRealEstate')">
+            <h3>Investir dans l'immobilier : une stratégie rentable <span class="new-badge">NEW</span></h3>
+            <p>Découvrez les avantages et les risques de l'investissement immobilier...</p>
             <button>Lire l'article</button>
+        </div>
+        <!-- CSS pour le badge "NEW" -->
+                                                <style>
+                                                    .new-badge {
+                                                        background-color: red;
+                                                        color: white;
+                                                        font-weight: bold;
+                                                        padding: 5px 10px;
+                                                        border-radius: 50%;
+                                                        font-size: 12px;
+                                                        margin-left: 10px;
+                                                    }
+                                                </style>
+        <div class="blog-post" onclick="showArticle('investingBasics')">
+            <h3>Les bases de l'investissement pour débutants <span class="new-badge">NEW</span></h3>
+            <p>Apprenez les premières étapes pour investir avec succès...</p>
+            <button>Lire l'article</button>
+                                                    <style>
+                                                        .new-badge {
+                                                            background-color: red;
+                                                            color: white;
+                                                            font-weight: bold;
+                                                            padding: 5px 10px;
+                                                            border-radius: 50%;
+                                                            font-size: 12px;
+                                                            margin-left: 10px;
+                                                        }
+                                                    </style>
         </div>
         <div class="blog-post" onclick="showArticle('interestRates')">
             <h3>Comprendre les taux d'intérêt des prêts</h3>
             <p>Un guide simple pour maîtriser les bases des taux d'intérêt...</p>
             <button>Lire l'article</button>
         </div>
-        <div class="blog-post" onclick="showArticle('investingBasics')">
-            <h3>Les bases de l'investissement pour débutants</h3>
-            <p>Apprenez les premières étapes pour investir avec succès...</p>
+        <div class="blog-post" onclick="showArticle('budgetingTips')">
+            <h3>Comment établir un budget efficace</h3>
+            <p>Des conseils pratiques pour mieux gérer vos finances au quotidien...</p>
+            <button>Lire l'article</button>
+        </div>
+        <div class="blog-post" onclick="showArticle('debtManagement')">
+            <h3>Gestion des dettes : stratégies efficaces</h3>
+            <p>Découvrez des méthodes pour réduire vos dettes et restaurer votre liberté financière...</p>
+            <button>Lire l'article</button>
+        </div>
+        <div class="blog-post" onclick="showArticle('emergencyFund')">
+            <h3>Pourquoi créer un fonds d'urgence ?</h3>
+            <p>Apprenez à préparer un fonds d'urgence pour faire face aux imprévus financiers...</p>
+            <button>Lire l'article</button>
+        </div>
+        <div class="blog-post" onclick="showArticle('taxPlanning')">
+            <h3>Planification fiscale : ce que vous devez savoir</h3>
+            <p>Un guide pour optimiser vos finances et réduire vos impôts...</p>
+            <button>Lire l'article</button>
+        </div>
+        <div class="blog-post" onclick="showArticle('creditScore')">
+            <h3>Améliorer votre score de crédit</h3>
+            <p>Des stratégies pour augmenter votre score et obtenir de meilleures conditions financières...</p>
+            <button>Lire l'article</button>
+        </div>
+        <div class="blog-post" onclick="showArticle('retirementPlanning')">
+            <h3>Comment planifier votre retraite tôt</h3>
+            <p>Les étapes clés pour commencer à planifier votre retraite dès maintenant...</p>
+            <button>Lire l'article</button>
+        </div>
+        <div class="blog-post" onclick="showArticle('retirement')">
+            <h3>Comment économiser pour votre retraite</h3>
+            <p>Découvrez les meilleures stratégies pour sécuriser votre avenir financier...</p>
+            <button>Lire l'article</button>
+        </div>
+        <div class="blog-post" onclick="showArticle('financialIndependence')">
+            <h3>Atteindre l'indépendance financière</h3>
+            <p>Découvrez les étapes pour parvenir à l'indépendance financière à long terme...</p>
             <button>Lire l'article</button>
         </div>
     </div>
 </div>
 
-
-<!-- Calculateur épargne -->
-<div id="savingsCalculator" class="calculator">
-    <h2>Simulateur d'Épargne</h2>
-    <label for="initSave">Épargne Initiale (€) :</label>
-    <input type="number" id="initSave" placeholder="Ex: 1000">
-    <label for="monthly">Contribution Mensuelle (€) :</label>
-    <input type="number" id="monthly" placeholder="Ex: 200">
-    <label for="yearsSave">Durée (années) :</label>
-    <input type="number" id="yearsSave" placeholder="Ex: 10">
-    <label for="savingsRate">Taux d'intérêt annuel (%) :</label>
-    <input type="number" id="savingsRate" placeholder="Ex: 4">
-    <button class="calculate" onclick="calculateSavings()">Calculer</button>
-    <div id="savingsResult" class="result"></div>
-    <div class="advice">
-        <h3>Conseils pour une meilleure épargne :</h3>
-        <p>1. Automatisez vos versements mensuels pour ne pas oublier de cotiser.</p>
-        <p>2. Placez vos économies dans des comptes ou placements offrant des taux d'intérêt intéressants.</p>
-        <p>3. Fixez des objectifs clairs pour votre épargne, comme l'achat d'une maison ou un voyage.</p>
-        <p>4. Réduisez vos dépenses inutiles pour augmenter vos contributions mensuelles.</p>
-    </div>
-</div>
-
 <!-- Articles de Blog -->
-<div id="article-retirement" class="calculator">
-    <h2>Comment économiser pour votre retraite</h2>
+<div id="article-investingInRealEstate" class="calculator">
+    <h2>Investir dans l'immobilier : une stratégie rentable</h2>
     <p>
-        Économiser pour votre retraite est une étape essentielle pour garantir votre sécurité financière à long terme. 
-        Voici quelques conseils pratiques : commencez tôt, profitez des avantages fiscaux des comptes de retraite, 
-        et diversifiez vos investissements.
+        L'immobilier est une excellente option pour diversifier vos investissements et générer des revenus passifs. Commencez par comprendre 
+        les différents types d'investissements immobiliers, comme les propriétés locatives ou les biens commerciaux. Assurez-vous de bien 
+        analyser le marché immobilier, les tendances locales et les coûts d'entretien avant de prendre une décision. L'immobilier offre 
+        également des avantages fiscaux, comme la possibilité de déduire certaines dépenses liées à vos investissements.
     </p>
     <button onclick="showSection('blogSection')">Retour au Blog</button>
 </div>
@@ -481,7 +533,9 @@ button.navigate:hover {
     <h2>Comprendre les taux d'intérêt des prêts</h2>
     <p>
         Les taux d'intérêt jouent un rôle clé dans le coût total de votre prêt. Apprenez à calculer les intérêts simples 
-        et composés, et découvrez comment négocier un meilleur taux avec votre banque.
+        et composés, et découvrez comment négocier un meilleur taux avec votre banque. 
+        Il est essentiel de comparer les offres de différents prêteurs et de comprendre l'impact d'un taux élevé sur la durée de remboursement. 
+        En outre, si vous avez un bon score de crédit, vous pouvez négocier des conditions plus favorables pour économiser sur les intérêts à long terme.
     </p>
     <button onclick="showSection('blogSection')">Retour au Blog</button>
 </div>
@@ -490,18 +544,118 @@ button.navigate:hover {
     <h2>Les bases de l'investissement pour débutants</h2>
     <p>
         L'investissement est une stratégie pour faire fructifier votre argent. Commencez par comprendre les différentes 
-        options, comme les actions, obligations, et fonds communs, et établissez un plan adapté à vos objectifs.
+        options, comme les actions, obligations, et fonds communs, et établissez un plan adapté à vos objectifs. 
+        Les actions offrent des rendements potentiellement plus élevés, mais avec un risque accru, tandis que les obligations sont plus sûres, mais rapportent moins. 
+        Diversifier votre portefeuille d'investissements est une excellente manière de réduire les risques et de maximiser les gains potentiels sur le long terme.
     </p>
     <button onclick="showSection('blogSection')">Retour au Blog</button>
 </div>
 
+<div id="article-budgetingTips" class="calculator">
+    <h2>Comment établir un budget efficace</h2>
+    <p>
+        Établir un budget est essentiel pour contrôler vos finances. Commencez par analyser vos revenus et vos dépenses mensuelles 
+        pour identifier où vous pouvez économiser. Utilisez la méthode 50/30/20, où 50 % de vos revenus vont aux besoins essentiels, 
+        30 % aux désirs, et 20 % aux économies et à la réduction de la dette. Un budget équilibré vous aidera à atteindre vos objectifs financiers et à éviter les mauvaises surprises.
+    </p>
+    <button onclick="showSection('blogSection')">Retour au Blog</button>
+</div>
+
+<div id="article-debtManagement" class="calculator">
+    <h2>Gestion des dettes : stratégies efficaces</h2>
+    <p>
+        La gestion des dettes est cruciale pour maintenir une bonne santé financière. Commencez par payer les dettes à taux d'intérêt élevé, 
+        comme les cartes de crédit, puis attaquez les dettes plus petites ou à taux plus bas. Utilisez la méthode de l'avalanche ou de la boule de neige pour une stratégie de remboursement efficace. 
+        De plus, évitez de contracter de nouvelles dettes pendant le processus pour éviter d'aggraver votre situation.
+    </p>
+    <button onclick="showSection('blogSection')">Retour au Blog</button>
+</div>
+
+<div id="article-emergencyFund" class="calculator">
+    <h2>Pourquoi créer un fonds d'urgence ?</h2>
+    <p>
+        Avoir un fonds d'urgence est essentiel pour gérer les imprévus sans perturber votre stabilité financière. Ce fonds doit couvrir 
+        environ trois à six mois de dépenses essentielles pour faire face à des situations comme une perte d'emploi ou une urgence médicale. 
+        Commencez à le constituer en économisant régulièrement, même de petites sommes. Un fonds d'urgence solide vous offre une sécurité 
+        et réduit le stress financier en cas de crise.
+    </p>
+    <button onclick="showSection('blogSection')">Retour au Blog</button>
+</div>
+
+<div id="article-taxPlanning" class="calculator">
+    <h2>Planification fiscale : ce que vous devez savoir</h2>
+    <p>
+        La planification fiscale est essentielle pour réduire votre charge fiscale et optimiser vos finances. Vous pouvez profiter de diverses 
+        stratégies, comme l'investissement dans des comptes de retraite fiscalement avantageux, ou encore l'utilisation de crédits et de déductions fiscales. 
+        En outre, l'optimisation de la structure de vos investissements, en prenant en compte la fiscalité des plus-values, peut réduire l'impact fiscal de vos gains.
+    </p>
+    <button onclick="showSection('blogSection')">Retour au Blog</button>
+</div>
+
+<div id="article-creditScore" class="calculator">
+    <h2>Améliorer votre score de crédit</h2>
+    <p>
+        Un bon score de crédit vous permet d'obtenir des prêts à des taux plus bas. Pour l'améliorer, commencez par vérifier votre rapport de crédit 
+        et corrigez toute erreur. Payez vos factures à temps et réduisez vos soldes de cartes de crédit pour maintenir un faible taux d'utilisation. 
+        Plus vous gérez bien votre crédit, plus vous augmenterez votre score, ce qui vous ouvrira des opportunités de financement avantageuses à l'avenir.
+    </p>
+    <button onclick="showSection('blogSection')">Retour au Blog</button>
+</div>
+
+<div id="article-retirementPlanning" class="calculator">
+    <h2>Comment planifier votre retraite tôt</h2>
+    <p>
+        Planifier votre retraite tôt peut vous offrir une liberté financière incroyable à l'âge de la retraite. Commencez par établir vos 
+        objectifs de retraite : quel montant souhaitez-vous avoir à votre disposition ? Utilisez des simulateurs pour estimer combien vous 
+        devez épargner chaque mois pour atteindre cet objectif. Diversifiez vos investissements dans des fonds de retraite, des actions et des 
+        obligations pour faire fructifier votre épargne de manière équilibrée.
+    </p>
+    <button onclick="showSection('blogSection')">Retour au Blog</button>
+</div>
+
+<div id="article-retirement" class="calculator">
+    <h2>Comment économiser pour votre retraite</h2>
+    <p>
+        Économiser pour votre retraite est une étape essentielle pour garantir votre sécurité financière à long terme. 
+        Voici quelques conseils pratiques : commencez tôt, profitez des avantages fiscaux des comptes de retraite, 
+        diversifiez vos investissements et réévaluez régulièrement vos objectifs pour vous assurer que vous êtes sur la bonne voie. 
+        Plus vous commencez tôt, plus vous pouvez tirer parti des intérêts composés, un atout puissant pour faire fructifier vos économies.
+    </p>
+    <button onclick="showSection('blogSection')">Retour au Blog</button>
+</div>
+
+<div id="article-financialIndependence" class="calculator">
+    <h2>Atteindre l'indépendance financière</h2>
+    <p>
+        L'indépendance financière vous permet de vivre sans dépendre d'un emploi à plein temps. Pour y parvenir, commencez par épargner 
+        une partie de vos revenus, investir intelligemment et réduire vos dépenses inutiles. Concentrez-vous sur la création de multiples 
+        sources de revenus, que ce soit par des investissements, des activités parallèles ou des entreprises. En ayant un plan et de la discipline, 
+        vous pouvez atteindre l'indépendance financière plus tôt que vous ne le pensez.
+    </p>
+    <button onclick="showSection('blogSection')">Retour au Blog</button>
+</div>
+
+<div id="aboutSection" style="display: none; padding: 20px; background-color: #f9f9f9; color: #333; text-align: left;">
+    <h2>À propos de MonPretRapide</h2>
+    <p>Bienvenue sur MonPretRapide, votre compagnon dans la gestion de vos finances personnelles. Nous vous offrons des outils intuitifs pour mieux comprendre vos finances et prendre des décisions éclairées. Que vous souhaitiez calculer vos mensualités de prêt, estimer votre épargne ou apprendre à investir, nous sommes là pour vous aider.</p>
+    <h3>Notre mission</h3>
+    <p>Notre objectif est de simplifier la finance pour tous. Nous croyons que chacun mérite de gérer ses finances avec confiance et clarté. Avec MonPretRapide, vous avez accès à des simulateurs précis, des conseils pratiques et des ressources éducatives.</p>
+    <h3>Pourquoi nous choisir ?</h3>
+    <ul>
+        <li>Des outils financiers faciles à utiliser et gratuits.</li>
+        <li>Une plateforme optimisée pour les mobiles et les ordinateurs.</li>
+        <li>Des articles et conseils écrits par des experts.</li>
+    </ul>
+    <p>Merci de faire confiance à MonPretRapide pour vos besoins financiers. N'hésitez pas à nous contacter pour toute question ou suggestion.</p>
+</div>
 </body>
 
 
 <footer>
-    <p>© 2024 MonSimulateur. Tous droits réservés.</p>
+    <p>© 2024 MonPretRapide. Tous droits réservés.</p>
     <a href="politique-confidentialite.html">Politique de confidentialité</a>
     <p>Contactez-nous : <a href="mailto:contact.monpretrapide@gmail.com">contact.monpretrapide@gmail.com</a></p>
+    <button onclick="showAbout()" class="about-button">À propos</button>
 </footer>
 
 <script>
@@ -640,6 +794,11 @@ document.addEventListener("DOMContentLoaded", () => {
 function showSection(sectionId) {
     document.querySelectorAll('.calculator').forEach(el => el.classList.remove('active'));
     document.getElementById(sectionId).classList.add('active');
+}
+function showAbout() {
+    const aboutSection = document.getElementById('aboutSection');
+    aboutSection.style.display = aboutSection.style.display === 'none' ? 'block' : 'none';
+    window.scrollTo({ top: aboutSection.offsetTop, behavior: 'smooth' });
 }
 
     </script>
