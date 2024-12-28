@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Politique de Confidentialité</title>
@@ -110,8 +110,26 @@
         </p>
     </main>
     <footer>
-        <p>© 2024 MonSimulateur. Tous droits réservés.</p>
-        <p><a href="index.html">Retour à l'accueil</a></p>
+        <p>© 2024 MonPretRapide. Tous droits réservés.</p>
     </footer>
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="goBackToMain()" style="
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #0d6efd;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;">
+            Retour à la page principale
+        </button>
+    </div>
+    
+    <script>
+        function goBackToMain() {
+            window.location.href = "index.html"; // Remplacez "index.html" par l'URL de votre page principale si nécessaire
+        }
+    </script>    
 </body>
 </html>
