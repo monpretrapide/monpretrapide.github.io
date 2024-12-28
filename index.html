@@ -5,66 +5,236 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulateur de prêt</title>
+    <title>Simulateur Financier Avancé</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
+            margin: 0;
+            background: linear-gradient(to bottom, #f4f4f9, #e3f2fd);
+            color: #333;
+        }
+        header {
+            background-color: #0d6efd;
+            color: white;
             padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            font-size: 2.5rem;
         }
         nav {
             display: flex;
             justify-content: center;
-            margin-bottom: 20px;
+            background-color: #0d6efd;
+            padding: 10px;
         }
         nav button {
             padding: 10px 20px;
             margin: 0 5px;
             font-size: 16px;
             cursor: pointer;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
+            border: 1px solid #0056b3;
+            background-color: #0d6efd;
+            color: white;
+            border-radius: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        nav button:hover {
+            background-color: #ffc107;
+            transform: scale(1.05);
         }
         nav button.active {
-            background-color: #28a745;
-            color: white;
+            background-color: #ffc107;
+            color: #212529;
         }
         .calculator {
             display: none;
             margin: 20px auto;
-            max-width: 400px;
+            max-width: 600px;
             padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
         .calculator.active {
             display: block;
         }
         input, button {
             margin: 10px 0;
-            padding: 10px;
+            padding: 12px;
             width: 100%;
             font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input:focus {
+            outline: none;
+            border-color: #0d6efd;
         }
         button.calculate {
-            background-color: #28a745;
+            background-color: #198754;
             color: white;
             border: none;
-            cursor: pointer;
+            font-weight: bold;
         }
         button.calculate:hover {
-            background-color: #218838;
+            background-color: #157347;
         }
         .result {
             margin-top: 20px;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
         }
+        table {
+            margin: 20px auto;
+            width: 90%;
+            border-collapse: collapse;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #0d6efd;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #0d6efd;
+            color: white;
+        }
+        footer a {
+            color: #ffc107;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .advice {
+            margin-top: 40px;
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .advice h3 {
+            color: #0d6efd;
+        }
+        footer a {
+    color: #ffc107;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+#financialTips {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+#tipContainer {
+    font-size: 1rem;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: justify;
+    padding: 10px;
+    border-left: 4px solid #0d6efd;
+    background-color: #f4f4f9;
+    border-radius: 10px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button.navigate {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 14px;
+    color: white;
+    background-color: #0d6efd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button.navigate:hover {
+    background-color: #ffc107;
+    transform: scale(1.05);
+}
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.blog-post {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog-post:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.blog-post h3 {
+    margin: 0 0 10px;
+    color: #0d6efd;
+}
+
+.blog-post p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.blog-post button {
+    margin-top: 10px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.blog-post button:hover {
+    background-color: #0056b3;
+}
+
+
     </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7128669870142382"
-     crossorigin="anonymous"></script>
-    <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-710VHGW07X"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -73,95 +243,403 @@
 
   gtag('config', 'G-710VHGW07X');
 </script>
+    
 </head>
 <body>
-    <h1>Simulateur de prêt</h1>
+    <header>
+        <h1>Simulateur Financier Avancé</h1>
+    </header>
+
     <nav>
-        <button onclick="showCalculator('loanCalculator')" class="active">Prêt Immobilier</button>
-        <button onclick="showCalculator('maxLoanCalculator')">Prêt Possible</button>
+            <button onclick="showCalculator('loanCalculator')" class="active">Calcul Prêt</button>
+            <button onclick="showCalculator('maxLoanCalculator')">Montant Empruntable</button>
+            <button onclick="showCalculator('savingsCalculator')">Simulateur Épargne</button>
+            <button onclick="showCalculator('financialTips')">Astuces Financières</button>
+            <button onclick="showSection('blogSection')">Blog</button>
+  
     </nav>
 
-    <!-- Calculateur de prêt immobilier -->
+    <!-- Calculateur de prêt -->
     <div id="loanCalculator" class="calculator active">
-        <h2>Calculer les mensualités</h2>
-        <label for="amount">Montant du prêt (€) :</label>
-        <input type="number" id="amount" placeholder="Ex: 200000">
-
-        <label for="rate">Taux d'intérêt (%) :</label>
-        <input type="number" id="rate" placeholder="Ex: 3">
-
+        <h2>Simulez votre Prêt</h2>
+        <label for="amount">Montant (€) :</label>
+        <input type="number" id="amount" placeholder="Ex: 100000">
+        <label for="rate">Taux d'intérêt annuel (%) :</label>
+        <input type="number" id="rate" placeholder="Ex: 3.5">
         <label for="years">Durée (années) :</label>
-        <input type="number" id="years" placeholder="Ex: 20">
-
+        <input type="number" id="years" placeholder="Ex: 15">
         <button class="calculate" onclick="calculateLoan()">Calculer</button>
         <div id="loanResult" class="result"></div>
+        <div id="loanTableContainer"></div>
+        <div class="advice">
+            <h3>Conseils pour bien gérer son prêt :</h3>
+            <p>1. Comparez les offres des banques pour trouver le taux le plus avantageux.</p>
+            <p>2. Préparez un dossier solide avec tous les justificatifs nécessaires pour accélérer l'approbation de votre prêt.</p>
+            <p>3. Calculez précisément votre capacité de remboursement pour éviter les surprises.</p>
+            <p>4. Négociez avec votre banque pour obtenir des conditions plus avantageuses, comme la suppression de frais de dossier.</p>
+        </div>
     </div>
 
-    <!-- Calculateur du montant empruntable -->
+    <!-- Calculateur montant empruntable -->
     <div id="maxLoanCalculator" class="calculator">
-        <h2>Calculer le montant empruntable</h2>
-        <label for="savings">Épargne mensuelle disponible (€) :</label>
-        <input type="number" id="savings" placeholder="Ex: 800">
-
-        <label for="maxRate">Taux d'intérêt (%) :</label>
-        <input type="number" id="maxRate" placeholder="Ex: 3">
-
-        <label for="maxYears">Durée du prêt (années) :</label>
-        <input type="number" id="maxYears" placeholder="Ex: 20">
-
+        <h2>Quel montant puis-je emprunter ?</h2>
+        <label for="income">Revenu Mensuel (€) :</label>
+        <input type="number" id="income" placeholder="Ex: 3000">
+        <label for="duration">Durée Prêt (années) :</label>
+        <input type="number" id="duration" placeholder="Ex: 20">
+        <label for="interestRate">Taux d'intérêt (%) :</label>
+        <input type="number" id="interestRate" placeholder="Ex: 2.5">
         <button class="calculate" onclick="calculateMaxLoan()">Calculer</button>
         <div id="maxLoanResult" class="result"></div>
+        <div class="advice">
+            <h3>Comment augmenter sa capacité d'emprunt ?</h3>
+            <p>1. Améliorez votre taux d’endettement en réduisant vos dettes et augmentant vos revenus.</p>
+            <p>2. Constituez un apport personnel plus élevé pour renforcer votre dossier.</p>
+            <p>3. Allongez la durée de votre prêt pour réduire vos mensualités, en étant conscient du coût total.</p>
+            <p>4. Améliorez votre score de crédit en gérant bien vos finances et évitant les retards de paiement.</p>
+        </div>
     </div>
 
+    <div id="financialTips" class="calculator">
+        <h2>Astuces Financières</h2>
+        <div id="tipContainer">
+            <p id="currentTip"></p>
+        </div>
+        <button class="navigate" onclick="showPreviousTip()">⬅ Astuce Précédente</button>
+        <button class="navigate" onclick="showNextTip()">Astuce Suivante ➡</button>
+    </div>
+
+    <!-- Calculateur épargne -->
+    <div id="savingsCalculator" class="calculator">
+        <h2>Simulateur d'Épargne</h2>
+        <label for="initSave">Épargne Initiale (€) :</label>
+        <input type="number" id="initSave" placeholder="Ex: 1000">
+        <label for="monthly">Contribution Mensuelle (€) :</label>
+        <input type="number" id="monthly" placeholder="Ex: 200">
+        <label for="yearsSave">Durée (années) :</label>
+        <input type="number" id="yearsSave" placeholder="Ex: 10">
+        <label for="savingsRate">Taux d'intérêt annuel (%) :</label>
+        <input type="number" id="savingsRate" placeholder="Ex: 4">
+        <button class="calculate" onclick="calculateSavings()">Calculer</button>
+        <div id="savingsResult" class="result"></div>
+        <div class="advice">
+            <h3>Conseils pour une meilleure épargne :</h3>
+            <p>1. Automatisez vos versements mensuels pour ne pas oublier de cotiser.</p>
+            <p>2. Placez vos économies dans des comptes ou placements offrant des taux d'intérêt intéressants.</p>
+            <p>3. Fixez des objectifs clairs pour votre épargne, comme l'achat d'une maison ou un voyage.</p>
+            <p>4. Réduisez vos dépenses inutiles pour augmenter vos contributions mensuelles.</p>
+        </div>
+    </div>
+
+
     <script>
-        // Fonction pour basculer entre les calculateurs
-        function showCalculator(calculatorId) {
-            // Masquer tous les calculateurs
-            const calculators = document.querySelectorAll('.calculator');
-            calculators.forEach(calculator => calculator.classList.remove('active'));
-
-            // Afficher le calculateur sélectionné
-            document.getElementById(calculatorId).classList.add('active');
-
-            // Mettre à jour l'état actif des boutons
-            const buttons = document.querySelectorAll('nav button');
-            buttons.forEach(button => button.classList.remove('active'));
-            document.querySelector(`nav button[onclick="showCalculator('${calculatorId}')"]`).classList.add('active');
+        function showCalculator(id) {
+            document.querySelectorAll('.calculator').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`button[onclick="showCalculator('${id}')"]`).classList.add('active');
         }
 
-        // Fonction pour calculer les mensualités du prêt
         function calculateLoan() {
             const amount = parseFloat(document.getElementById('amount').value);
             const rate = parseFloat(document.getElementById('rate').value) / 100 / 12;
             const years = parseInt(document.getElementById('years').value);
-            const n = years * 12;
+            const months = years * 12;
 
             if (isNaN(amount) || isNaN(rate) || isNaN(years)) {
                 document.getElementById('loanResult').innerText = "Veuillez entrer des valeurs valides.";
                 return;
             }
 
-            const monthly = (amount * rate) / (1 - Math.pow(1 + rate, -n));
-            document.getElementById('loanResult').innerText = 
-                "Mensualité : " + monthly.toFixed(2) + " €";
+            const monthly = (amount * rate) / (1 - Math.pow(1 + rate, -months));
+            document.getElementById('loanResult').innerText = `Mensualité : ${monthly.toFixed(2)} €`;
+
+            const tableContainer = document.getElementById('loanTableContainer');
+            tableContainer.innerHTML = generateAmortizationTable(amount, rate, months, monthly);
         }
 
-        // Fonction pour calculer le montant empruntable
-        function calculateMaxLoan() {
-            const savings = parseFloat(document.getElementById('savings').value);
-            const rate = parseFloat(document.getElementById('maxRate').value) / 100 / 12;
-            const years = parseInt(document.getElementById('maxYears').value);
-            const n = years * 12;
+        function generateAmortizationTable(amount, rate, months, monthlyPayment) {
+            let balance = amount;
+            let html = `<table><thead><tr><th>Mois</th><th>Intérêts (€)</th><th>Principal (€)</th><th>Solde (€)</th></tr></thead><tbody>`;
+            for (let i = 1; i <= months; i++) {
+                const interest = balance * rate;
+                const principal = monthlyPayment - interest;
+                balance -= principal;
+                html += `<tr>
+                    <td>${i}</td>
+                    <td>${interest.toFixed(2)}</td>
+                    <td>${principal.toFixed(2)}</td>
+                    <td>${balance.toFixed(2)}</td>
+                </tr>`;
+            }
+            html += `</tbody></table>`;
+            return html;
+        }
 
-            if (isNaN(savings) || isNaN(rate) || isNaN(years)) {
+        function calculateMaxLoan() {
+            const income = parseFloat(document.getElementById('income').value);
+            const rate = parseFloat(document.getElementById('interestRate').value) / 100 / 12;
+            const years = parseInt(document.getElementById('duration').value);
+            const months = years * 12;
+
+            if (isNaN(income) || isNaN(rate) || isNaN(years)) {
                 document.getElementById('maxLoanResult').innerText = "Veuillez entrer des valeurs valides.";
                 return;
             }
 
-            const maxLoan = savings * (1 - Math.pow(1 + rate, -n)) / rate;
-            document.getElementById('maxLoanResult').innerText = 
-                "Montant empruntable : " + maxLoan.toFixed(2) + " €";
+            const maxPayment = income * 0.35;
+            const maxLoan = maxPayment * (1 - Math.pow(1 + rate, -months)) / rate;
+            document.getElementById('maxLoanResult').innerText = `Montant Empruntable : ${maxLoan.toFixed(2)} €`;
         }
+
+        function calculateSavings() {
+            const initSave = parseFloat(document.getElementById('initSave').value);
+            const monthly = parseFloat(document.getElementById('monthly').value);
+            const rate = parseFloat(document.getElementById('savingsRate').value) / 100 / 12;
+            const years = parseInt(document.getElementById('yearsSave').value);
+            const months = years * 12;
+        }
+
+        
     </script>
+            <!-- Calculateur montant empruntable -->
+<div id="maxLoanCalculator" class="calculator">
+    <h2>Quel montant puis-je emprunter ?</h2>
+    <label for="income">Revenu Mensuel (€) :</label>
+    <input type="number" id="income" placeholder="Ex: 3000">
+    <label for="duration">Durée Prêt (années) :</label>
+    <input type="number" id="duration" placeholder="Ex: 20">
+    <label for="interestRate">Taux d'intérêt (%) :</label>
+    <input type="number" id="interestRate" placeholder="Ex: 2.5">
+    <button class="calculate" onclick="calculateMaxLoan()">Calculer</button>
+    <div id="maxLoanResult" class="result"></div>
+    <div class="advice">
+        <h3>Comment augmenter sa capacité d'emprunt ?</h3>
+        <p>1. Améliorez votre taux d’endettement en réduisant vos dettes et augmentant vos revenus.</p>
+        <p>2. Constituez un apport personnel plus élevé pour renforcer votre dossier.</p>
+        <p>3. Allongez la durée de votre prêt pour réduire vos mensualités, en étant conscient du coût total.</p>
+        <p>4. Améliorez votre score de crédit en gérant bien vos finances et évitant les retards de paiement.</p>
+    </div>
+</div>
+<!-- Section Blog -->
+<div id="blogSection" class="calculator">
+    <h2>Articles Financiers</h2>
+    <div class="blog-container">
+        <div class="blog-post" onclick="showArticle('retirement')">
+            <h3>Comment économiser pour votre retraite</h3>
+            <p>Découvrez les meilleures stratégies pour sécuriser votre avenir financier...</p>
+            <button>Lire l'article</button>
+        </div>
+        <div class="blog-post" onclick="showArticle('interestRates')">
+            <h3>Comprendre les taux d'intérêt des prêts</h3>
+            <p>Un guide simple pour maîtriser les bases des taux d'intérêt...</p>
+            <button>Lire l'article</button>
+        </div>
+        <div class="blog-post" onclick="showArticle('investingBasics')">
+            <h3>Les bases de l'investissement pour débutants</h3>
+            <p>Apprenez les premières étapes pour investir avec succès...</p>
+            <button>Lire l'article</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Calculateur épargne -->
+<div id="savingsCalculator" class="calculator">
+    <h2>Simulateur d'Épargne</h2>
+    <label for="initSave">Épargne Initiale (€) :</label>
+    <input type="number" id="initSave" placeholder="Ex: 1000">
+    <label for="monthly">Contribution Mensuelle (€) :</label>
+    <input type="number" id="monthly" placeholder="Ex: 200">
+    <label for="yearsSave">Durée (années) :</label>
+    <input type="number" id="yearsSave" placeholder="Ex: 10">
+    <label for="savingsRate">Taux d'intérêt annuel (%) :</label>
+    <input type="number" id="savingsRate" placeholder="Ex: 4">
+    <button class="calculate" onclick="calculateSavings()">Calculer</button>
+    <div id="savingsResult" class="result"></div>
+    <div class="advice">
+        <h3>Conseils pour une meilleure épargne :</h3>
+        <p>1. Automatisez vos versements mensuels pour ne pas oublier de cotiser.</p>
+        <p>2. Placez vos économies dans des comptes ou placements offrant des taux d'intérêt intéressants.</p>
+        <p>3. Fixez des objectifs clairs pour votre épargne, comme l'achat d'une maison ou un voyage.</p>
+        <p>4. Réduisez vos dépenses inutiles pour augmenter vos contributions mensuelles.</p>
+    </div>
+</div>
+
+<!-- Articles de Blog -->
+<div id="article-retirement" class="calculator">
+    <h2>Comment économiser pour votre retraite</h2>
+    <p>
+        Économiser pour votre retraite est une étape essentielle pour garantir votre sécurité financière à long terme. 
+        Voici quelques conseils pratiques : commencez tôt, profitez des avantages fiscaux des comptes de retraite, 
+        et diversifiez vos investissements.
+    </p>
+    <button onclick="showSection('blogSection')">Retour au Blog</button>
+</div>
+
+<div id="article-interestRates" class="calculator">
+    <h2>Comprendre les taux d'intérêt des prêts</h2>
+    <p>
+        Les taux d'intérêt jouent un rôle clé dans le coût total de votre prêt. Apprenez à calculer les intérêts simples 
+        et composés, et découvrez comment négocier un meilleur taux avec votre banque.
+    </p>
+    <button onclick="showSection('blogSection')">Retour au Blog</button>
+</div>
+
+<div id="article-investingBasics" class="calculator">
+    <h2>Les bases de l'investissement pour débutants</h2>
+    <p>
+        L'investissement est une stratégie pour faire fructifier votre argent. Commencez par comprendre les différentes 
+        options, comme les actions, obligations, et fonds communs, et établissez un plan adapté à vos objectifs.
+    </p>
+    <button onclick="showSection('blogSection')">Retour au Blog</button>
+</div>
+
 </body>
-</html>
+
+
+<footer>
+    <p>© 2024 MonSimulateur. Tous droits réservés.</p>
+    <a href="politique-confidentialite.html">Politique de confidentialité</a>
+    <p>Contactez-nous : <a href="mailto:contact.monpretrapide@gmail.com">contact.monpretrapide@gmail.com</a></p>
+</footer>
+
+<script>
+    // Liste des astuces financières
+const tips = [
+    "Établissez un budget mensuel pour suivre vos dépenses et éviter les excès.",
+    "Épargnez au moins 20 % de vos revenus chaque mois pour vos projets futurs.",
+    "Évitez les achats impulsifs en laissant 24 heures de réflexion avant toute dépense importante.",
+    "Investissez dans des actifs à faible risque si vous débutez en finance.",
+    "Payez vos dettes à taux d'intérêt élevé en priorité pour économiser sur le long terme.",
+    "Planifiez une retraite confortable en commençant à cotiser tôt dans des plans d'épargne.",
+    "Comparez les prix en ligne avant d'effectuer un achat pour obtenir les meilleures offres.",
+    "Diversifiez vos investissements pour limiter les risques financiers.",
+    "Utilisez des applications de gestion financière pour automatiser vos économies.",
+    "Constituez un fonds d'urgence équivalent à 3 à 6 mois de dépenses essentielles."
+];
+
+let currentTipIndex = 0;
+
+// Afficher l'astuce actuelle
+function displayTip(index) {
+    const tipContainer = document.getElementById("currentTip");
+    tipContainer.innerText = tips[index];
+}
+
+// Afficher l'astuce suivante
+function showNextTip() {
+    currentTipIndex = (currentTipIndex + 1) % tips.length; // Cycle à travers les astuces
+    displayTip(currentTipIndex);
+}
+
+// Afficher l'astuce précédente
+function showPreviousTip() {
+    currentTipIndex = (currentTipIndex - 1 + tips.length) % tips.length; // Cycle en sens inverse
+    displayTip(currentTipIndex);
+}
+
+// Initialiser avec la première astuce
+document.addEventListener("DOMContentLoaded", () => {
+    displayTip(currentTipIndex);
+});
+
+    function showCalculator(id) {
+        document.querySelectorAll('.calculator').forEach(el => el.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+        document.querySelector(`button[onclick="showCalculator('${id}')"]`).classList.add('active');
+    }
+
+    function calculateLoan() {
+        const amount = parseFloat(document.getElementById('amount').value);
+        const rate = parseFloat(document.getElementById('rate').value) / 100 / 12;
+        const years = parseInt(document.getElementById('years').value);
+        const months = years * 12;
+
+        if (isNaN(amount) || isNaN(rate) || isNaN(years)) {
+            document.getElementById('loanResult').innerText = "Veuillez entrer des valeurs valides.";
+            return;
+        }
+
+        const monthly = (amount * rate) / (1 - Math.pow(1 + rate, -months));
+        document.getElementById('loanResult').innerText = `Mensualité : ${monthly.toFixed(2)} €`;
+
+        const tableContainer = document.getElementById('loanTableContainer');
+        tableContainer.innerHTML = generateAmortizationTable(amount, rate, months, monthly);
+    }
+
+    function generateAmortizationTable(amount, rate, months, monthlyPayment) {
+        let balance = amount;
+        let html = `<table><thead><tr><th>Mois</th><th>Intérêts (€)</th><th>Principal (€)</th><th>Solde (€)</th></tr></thead><tbody>`;
+        for (let i = 1; i <= months; i++) {
+            const interest = balance * rate;
+            const principal = monthlyPayment - interest;
+            balance -= principal;
+            html += `<tr>
+                <td>${i}</td>
+                <td>${interest.toFixed(2)}</td>
+                <td>${principal.toFixed(2)}</td>
+                <td>${balance.toFixed(2)}</td>
+            </tr>`;
+        }
+        html += `</tbody></table>`;
+        return html;
+    }
+
+    function calculateMaxLoan() {
+        const income = parseFloat(document.getElementById('income').value);
+        const rate = parseFloat(document.getElementById('interestRate').value) / 100 / 12;
+        const years = parseInt(document.getElementById('duration').value);
+        const months = years * 12;
+
+        if (isNaN(income) || isNaN(rate) || isNaN(years)) {
+            document.getElementById('maxLoanResult').innerText = "Veuillez entrer des valeurs valides.";
+            return;
+        }
+
+        const maxPayment = income * 0.35;
+        const maxLoan = maxPayment * (1 - Math.pow(1 + rate, -months)) / rate;
+        document.getElementById('maxLoanResult').innerText = `Montant Empruntable : ${maxLoan.toFixed(2)} €`;
+    }
+
+    function calculateSavings() {
+        const initSave = parseFloat(document.getElementById('initSave').value);
+        const monthly = parseFloat(document.getElementById('monthly').value);
+        const rate = parseFloat(document.getElementById('savingsRate').value) / 100 / 12;
+        const years = parseInt(document.getElementById('yearsSave').value);
+        const months = years * 12;
+
+        if (isNaN(initSave) || isNaN(monthly) || isNaN(rate) || isNaN(years)) {
+            document.getElementById('savingsResult').innerText = "Veuillez entrer des valeurs valides.";
+            return;
+        }
+
+        let total = initSave;
+        let html = `<table><thead><tr><th>Mois</th><th>Intérêts (€)</th><th>Total (€)</th></tr></thead><tbody>`;
+
+        for (let i = 1; i <= months; i++) {
+            const interest = total * rate;
+            total += interest + monthly;
+            html += `<tr>
+                <td>${i}</td>
+                <td>${interest.toFixed(2)}</td>
+                <td>${total.toFixed(2)}</td>
+            </tr>`;
+        }
+
+        html += `</tbody></table>`;
+        document.getElementById('savingsResult').innerText = `Épargne Totale : ${total.toFixed(2)} €`;
+        document.getElementById('savingsResult').insertAdjacentHTML('beforeend', html);
+    }
+    function showArticle(articleId) {
+    document.querySelectorAll('.calculator').forEach(el => el.classList.remove('active'));
+    document.getElementById(`article-${articleId}`).classList.add('active');
+}
+
+function showSection(sectionId) {
+    document.querySelectorAll('.calculator').forEach(el => el.classList.remove('active'));
+    document.getElementById(sectionId).classList.add('active');
+}
+
+    </script>
