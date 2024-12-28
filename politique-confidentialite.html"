@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de Confidentialité</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f4f4f9, #e3f2fd);
+            color: #333;
+        }
+        header {
+            background-color: #0d6efd;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            line-height: 1.8;
+        }
+        h2 {
+            color: #0d6efd;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+        a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            background-color: #0d6efd;
+            color: white;
+            padding: 10px;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #ffc107;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Politique de Confidentialité</h1>
+    </header>
+    <main>
+        <h2>Introduction</h2>
+        <p>
+            Votre confidentialité est importante pour nous. Cette politique de confidentialité décrit comment nous collectons, utilisons et protégeons vos informations personnelles lorsque vous utilisez notre site.
+        </p>
+        
+        <h2>Collecte de données</h2>
+        <p>
+            Nous collectons les informations que vous saisissez directement sur notre site, telles que les données fournies dans nos simulateurs ou via des formulaires de contact.
+        </p>
+
+        <h2>Utilisation des données</h2>
+        <p>
+            Vos données sont utilisées pour :
+        </p>
+        <ul>
+            <li>Personnaliser votre expérience sur notre site.</li>
+            <li>Améliorer nos services grâce à des analyses anonymes.</li>
+            <li>Vous fournir des informations ou répondre à vos questions.</li>
+        </ul>
+
+        <h2>Sécurité des données</h2>
+        <p>
+            Nous mettons en place des mesures de sécurité techniques et organisationnelles pour protéger vos informations personnelles contre tout accès, utilisation ou divulgation non autorisés.
+        </p>
+
+        <h2>Partage des données</h2>
+        <p>
+            Nous ne partageons pas vos données personnelles avec des tiers, sauf si la loi l'exige ou si cela est nécessaire pour fournir les services demandés.
+        </p>
+
+        <h2>Vos droits</h2>
+        <p>
+            Vous avez le droit de consulter, corriger ou supprimer les données personnelles que nous détenons sur vous. Contactez-nous à l'adresse suivante pour exercer vos droits :
+            <a href="mailto:contact.monpretrapide@gmail.com">contact.monpretrapide@gmail.com</a>.
+        </p>
+
+        <h2>Modifications</h2>
+        <p>
+            Cette politique de confidentialité peut être mise à jour à tout moment. Nous vous encourageons à consulter régulièrement cette page pour rester informé des modifications.
+        </p>
+    </main>
+    <footer>
+        <p>© 2024 MonSimulateur. Tous droits réservés.</p>
+        <p><a href="index.html">Retour à l'accueil</a></p>
+    </footer>
+</body>
+</html>
